@@ -1,0 +1,164 @@
+@extends('admin.layouts.master')
+
+@section('styles')
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+@endsection
+
+@section('main')
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="page-title mb-0 font-size-18">Add New Article</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Articles</a></li>
+                    <li class="breadcrumb-item active">Articles</li>
+                </ol>
+            </div>
+            
+        </div>
+        @include('admin.layouts.partials.errors')
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="{{route('articles.store')}}" method="POST" id="add-form" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Add new article</h4>
+                            <div class="mb-3 row">
+                                <label for="example-text-input" class="col-md-3 col-form-label">Article Title</label>
+                                <div class="col-md-9">
+                                    <input class="form-control" type="text" name="title" value="Artisanal kale"
+                                        id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="example-url-input" class="col-md-3 col-form-label">Excerpt</label>
+                                <div class="col-md-9">
+                                    <input class="form-control" type="text" name="excerpt" value=""
+                                        id="example-url-input">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="example-url-input" class="col-md-3 col-form-label">Customize Link</label>
+                                <div class="col-md-9">
+                                    <input class="form-control" type="text" name="slug" value="https://getbootstrap.com"
+                                        id="example-url-input">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label class="col-md-3 col-form-label">Categories</label>
+                                <div class="col-md-9">
+                                    <select class="form-select" name="category" aria-label="Default select example">
+                                        <option selected>Select</option>
+                                        <option>Large select</option>
+                                        <option>Small select</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label class="col-md-3 col-form-label">Body</label>
+                                <textarea id="summernote" class="mb-5" name="body"
+                                    value=""><p>Hello Summernote</p></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Thumbnail</h4>
+                            <p class="card-title-desc">
+                                <em>Choose file…</em> and selected file name text.
+                            </p>
+                            <div class="input-group">
+                                <input type="file" name="thubmnail" class="form-control" id="inputGroupFile02">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Cover Image</h4>
+                            <p class="card-title-desc">
+                                <em>Choose file…</em> and selected file name text.
+                            </p>
+                            <div class="input-group">
+                                <input type="file"  name="over_image" class="form-control" id="inputGroupFile02">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Switches</h4>
+                            <p class="card-title-desc">A switch has the markup of a custom checkbox but uses the
+                                <code>.custom-switch</code> class to render a toggle switch. Switches also
+                                support the <code>disabled</code> attribute.
+                            </p>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+                                <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Checked switch
+                                    checkbox input</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled"
+                                    disabled="">
+                                <label class="form-check-label ms-1" for="flexSwitchCheckDisabled">Disabled
+                                    switch
+                                    checkbox input</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- end row -->
+
+<div class="bg-white  box-shadow-m-up text-left py-3" style="position: fixed;bottom: 0;width: 100%;z-index: 1;">
+
+    <div class="group-buttons d-xs-mx-3" style="padding-left: 1.7rem;">
+
+        <button type="submit" form="add-form" class="btn btn-primary waves-effect waves-light"> <i
+                class="fas fa-plus fa-fw mr-1" aria-hidden="true"></i>
+            Add new article </button>
+
+        <button type="reset" class="btn btn-danger waves-effect waves-light"> <i class="fas fa-trash-alt fa-fw mr-1"
+                aria-hidden="true"></i>
+            Clear </button>
+
+    </div>
+</div>
+
+@endsection
+
+
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+$('#summernote').summernote({height: 150});
+});
+</script>
+@endsection
