@@ -42,13 +42,6 @@
                                         id="example-text-input">
                                 </div>
                             </div>
-                            <div class="mb-3 row">
-                                <label for="example-url-input" class="col-md-3 col-form-label">Slug</label>
-                                <div class="col-md-9">
-                                    <input class="form-control" type="text" name="slug" value="" id="example-url-input">
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>

@@ -43,27 +43,13 @@
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="example-url-input" class="col-md-3 col-form-label">Excerpt</label>
-                                <div class="col-md-9">
-                                    <input class="form-control" type="text" name="excerpt" value=""
-                                        id="example-url-input">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="example-url-input" class="col-md-3 col-form-label">Customize Link</label>
-                                <div class="col-md-9">
-                                    <input class="form-control" type="text" name="slug" value="https://getbootstrap.com"
-                                        id="example-url-input">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
                                 <label class="col-md-3 col-form-label">Categories</label>
                                 <div class="col-md-9">
                                     <select class="form-select" name="category" aria-label="Default select example">
+                                        @foreach ($categoris as $category)
                                         <option selected>Select</option>
-                                        <option>Large select</option>
-                                        <option>Small select</option>
+                                        <option value="{{$category->id}}">{{$category->value}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -89,44 +75,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Cover Image</h4>
-                            <p class="card-title-desc">
-                                <em>Choose file…</em> and selected file name text.
-                            </p>
-                            <div class="input-group">
-                                <input type="file"  name="over_image" class="form-control" id="inputGroupFile02">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Switches</h4>
-                            <p class="card-title-desc">A switch has the markup of a custom checkbox but uses the
-                                <code>.custom-switch</code> class to render a toggle switch. Switches also
-                                support the <code>disabled</code> attribute.
-                            </p>
-
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
-                                <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Checked switch
-                                    checkbox input</label>
-                            </div>
-
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled"
-                                    disabled="">
-                                <label class="form-check-label ms-1" for="flexSwitchCheckDisabled">Disabled
-                                    switch
-                                    checkbox input</label>
-                            </div>
-
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </form>
